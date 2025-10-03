@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🫂 Profil Bio 💯</title>
+    <meta name="description" content="Websitefree yang lihat ini iya main di Indonesia">
+    <meta name="keywords" content="Indonesia">
+    <meta name="author" content="Website Free Official">
+    
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/8899/8899518.png" type="image/jpeg">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Clara - YouTuber Cantik & Inspiratif">
+    <meta property="og:description" content="Ikuti Gimana Coda Free Mau di dunia">
+    <meta property="og:image" content="https://files.catbox.moe/8dsxfd.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://namasitusanda.com">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #710000 0%, #00425F 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .card {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .slider {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .prev {
+            left: 15px;
+        }
+        
+        .next {
+            right: 15px;
+        }
+        
+        .slide-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        .profile-content {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        #profile-name {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        #profile-bio {
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: #000B7E;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #E852FF;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #00FFFF;
+            border: 2px solid #8400FF;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 107, 107, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: #FF8600;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            font-size: 12px;
+            color: #453848;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="slider" id="sliderContainer">
+            <div class="slides" id="slideBox">
+                <!-- Slides will be added by JavaScript -->
+            </div>
+            <button class="nav-btn prev" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-btn next" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="slide-indicators" id="indicators">
+                <!-- Indicators will be added by JavaScript -->
+            </div>
+        </div>
+        <div class="profile-content">
+            <h2 id="profile-name">I'm Anime Rizki</h2>
+            <p id="profile-bio">Kalau kamu butuh teman aku di sini</p>
+            <div class="btn-group" id="button-group">
+                <!-- Buttons will be added by JavaScript -->
+            </div>
+            <div class="socials" id="social-links">
+                <!-- Social links will be added by JavaScript -->
+            </div>
+            <div class="footer">2025-2026</div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data for the profile
+        const profileData = {
+            name: "Rizki",
+            bio: "jangan ya jomblo main",
+            images: [
+                "https://files.catbox.moe/euyi8y.jpg",
+                "https://files.catbox.moe/swfzrp.jpg",
+                "https://files.catbox.moe/wwmxgc.jpg"
+            ],
+            buttons: [
+                {
+                    text: "Website Link Klik",
+                    url: "https://nefu.life/hello-link-klik",
+                    icon: "fas fa-user-secret",
+                    type: "primary"
+                },
+                {
+                    text: "Lihat Portfolio",
+                    url: "https://rizki-gg.github.io/ideal-memory/",
+                    icon: "fas fa-code",
+                    type: "secondary"
+                }
+            ],
+            socialLinks: [
+                {
+                    platform: "Instagram",
+                    url: "https://instagram.com",
+                    icon: "fab fa-instagram"
+                },
+                {
+                    platform: "TikTok",
+                    url: "https://tiktok.com",
+                    icon: "fab fa-tiktok"
+                },
+                {
+                    platform: "WhatsApp",
+                    url: "https://WhatsApp.com",
+                    icon: "fab fa-whatsapp"
+                }
+            ]
+        };
+
+        // Initialize the slider
+        let currentSlide = 0;
+        const slideBox = document.getElementById('slideBox');
+        const indicators = document.getElementById('indicators');
+        
+        // Create slides and indicators
+        profileData.images.forEach((image, index) => {
+            // Create slide
+            const slide = document.createElement('div');
+            slide.className = 'slide';
+            slide.style.backgroundImage = `url(${image})`;
+            slideBox.appendChild(slide);
+            
+            // Create indicator
+            const indicator = document.createElement('div');
+            indicator.className = 'indicator';
+            if (index === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicators.appendChild(indicator);
+        });
+        
+        // Create buttons
+        const buttonGroup = document.getElementById('button-group');
+        profileData.buttons.forEach(button => {
+            const btn = document.createElement('a');
+            btn.href = button.url;
+            btn.className = `btn ${button.type === 'primary' ? 'btn-primary' : 'btn-secondary'}`;
+            btn.innerHTML = `<i class="${button.icon}"></i> ${button.text}`;
+            buttonGroup.appendChild(btn);
+        });
+        
+        // Create social links
+        const socialLinks = document.getElementById('social-links');
+        profileData.socialLinks.forEach(link => {
+            const socialLink = document.createElement('a');
+            socialLink.href = link.url;
+            socialLink.className = 'social-link';
+            socialLink.innerHTML = `<i class="${link.icon}"></i>`;
+            socialLink.setAttribute('aria-label', link.platform);
+            socialLinks.appendChild(socialLink);
+        });
+        
+        // Navigation functions
+        function goToSlide(index) {
+            currentSlide = index;
+            slideBox.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            document.querySelectorAll('.indicator').forEach((indicator, i) => {
+                if (i === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % profileData.images.length;
+            goToSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + profileData.images.length) % profileData.images.length;
+            goToSlide(currentSlide);
+        }
+        
+        // Event listeners for navigation buttons
+        document.querySelector('.next').addEventListener('click', nextSlide);
+        document.querySelector('.prev').addEventListener('click', prevSlide);
+        
+        // Auto slide change every 5 seconds
+        setInterval(nextSlide, 5000);
+    </script>
+</body>
+</html>
